@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.musicfox.control",
+  "name": "Musicfox Control",
+  "version": "0.1.0",
+  "author": "zach",
+  "license": "MIT",
+  "description": "Now-playing bar widget and panel for musicfox (the terminal NetEase Cloud Music player). Reads and drives musicfox over MPRIS, so it needs no fork of the player: artwork, title, transport controls, seeking, volume, lyrics and the current queue.",
+  "kinds": [
+    "bar-widget",
+    "panel"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml",
+    "panel": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "Musicfox",
+    "description": "Now-playing title with artwork, transport controls, seek, volume, lyrics and the current queue.",
+    "category": "Media",
+    "aliases": [
+      "musicfox",
+      "netease",
+      "网易云",
+      "music"
+    ],
+    "allowMultiple": false,
+    "defaultSection": "left",
+    "defaults": {
+      "barMode": "Title",
+      "maxLabelWidth": 440,
+      "showLyricInBar": true,
+      "middleClick": "next",
+      "wheelAction": "volume",
+      "panelWidth": 380
+    },
+    "schema": [
+      {
+        "key": "barMode",
+        "type": "enum",
+        "label": "Bar shows",
+        "options": [
+          "Icon",
+          "Title",
+          "Artist · Title",
+          "Lyric"
+        ],
+        "defaultValue": "Title",
+        "description": "What the bar widget prints next to the play glyph."
+      },
+      {
+        "key": "maxLabelWidth",
+        "type": "integer",
+        "label": "Max label width",
+        "min": 60,
+        "max": 800,
+        "step": 10,
+        "defaultValue": 440,
+        "description": "Pixel budget for the lyric/title. It is truncated with an ellipsis so a long lyric cannot grow the widget over the bar's center cluster."
+      },
+      {
+        "key": "showLyricInBar",
+        "type": "boolean",
+        "label": "Scroll lyrics instead of the title",
+        "defaultValue": true,
+        "description": "When musicfox exposes a timed lyric, show the current line on the bar. Falls back to the title when there is no lyric."
+      },
+      {
+        "key": "middleClick",
+        "type": "enum",
+        "label": "Middle click",
+        "options": [
+          "next",
+          "previous",
+          "playPause",
+          "none"
+        ],
+        "defaultValue": "next"
+      },
+      {
+        "key": "wheelAction",
+        "type": "enum",
+        "label": "Scroll wheel",
+        "options": [
+          "volume",
+          "seek",
+          "nextPrevious",
+          "none"
+        ],
+        "defaultValue": "volume"
+      },
+      {
+        "key": "panelWidth",
+        "type": "integer",
+        "label": "Panel width",
+        "min": 300,
+        "max": 640,
+        "step": 20,
+        "defaultValue": 380
+      }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+# Screenshots and recordings captured while testing locally
+dev/*.log
+dev/*.png
+
+# Editor / OS noise
+.DS_Store
+*.swp
