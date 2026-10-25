@@ -175,4 +175,4 @@ dev/install.sh     sync + register
 
 ## License
 
-MIT
+[MIT](LICENSE) © 2026 zheng zhao
