@@ -205,13 +205,11 @@ BarWidget {
     spacing: Style.space(2)
 
     // ---- previous ---------------------------------------------------------
-    WidgetButton {
+    TransportButton {
       id: prevButton
       bar: root.bar
       text: "󰒮"
-      labelVisible: true
       tooltipText: qsTr("Previous")
-      fixedHeight: root.barSize
       // The arrows only appear once there is a track to step through;
       // otherwise a stopped player would show three dead buttons.
       visible: root.active
@@ -258,13 +256,11 @@ BarWidget {
     }
 
     // ---- next -------------------------------------------------------------
-    WidgetButton {
+    TransportButton {
       id: nextButton
       bar: root.bar
       text: "󰒭"
-      labelVisible: true
       tooltipText: qsTr("Next")
-      fixedHeight: root.barSize
       visible: root.active
       readonly property bool canStep: root.model ? root.model.canGoNext : false
       interactive: canStep
